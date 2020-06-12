@@ -37,3 +37,31 @@ Let's derive Bayes' theorem using joint and conditional probability using a two-
 ![title](image/BayesTheorem.JPG)
 
 We have learnt some important concepts related to Bayes’ theorem, i.e. conditional probability and joint probability.
+
+## Naive Bayes For Categorical Data
+In this session, you will understand Naive Bayes classifier through an example of mushrooms where the aim is to classify a new mushroom into edible or poisonous class. You will also learn that this algorithm uses probability to do such classification. You will follow the steps given below through the course of this session:
+* Bayes Theorem 
+* Naïve Bayes on Categorical data
+
+### Naive Bayes -With One Feature
+Welcome to the second session of ‘Naive Bayes’. In this session, you will implement Naive Bayes on a mushroom dataset. So, let's have a quick glance at the structure of the dataset.
+
+[Mushroom Data Subset](datset/Mushroom-Subset.xlsx)
+
+![title](image/mushroom-dataset.JPG)
+
+Type of mushroom is the target variable here. We will now implement Naïve Bayes on this mushroom dataset and try to classify a new test point into either of the two classes – edible or poisonous. As the name suggests, the Naive Bayes algorithm uses Bayes’ theorem to classify new test points. But, how exactly does it do this? 
+
+![title](image/Bayesformaula.JPG)
+
+Before we look at six variables together, lets consider a simplified sample containing only two columns i.e class label Ci (Type of mushroom) & X1 (which is Cap-shape). Lets apply Bayes theorem to classify this data point.
+
+![title](image/mushroom-dataset1.JPG)
+
+![title](image/applying-bayes.JPG)
+
+We do not need to consider the denominator because that is the common factor in both the equations.
+
+![title](image/mushroom-probability.JPG)
+
+![title](image/solving-bayes.png)
