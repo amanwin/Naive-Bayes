@@ -93,3 +93,55 @@ Naïve Bayes follows an assumption that the variables are **conditionally indepe
 ![title](image/applying-bayes-classification.JPG)
 
 Again in above cases we are not considering the effect of denominator.
+
+## Deciphering Naive Bayes
+You saw how conditional independence lets you calculate the class probability in cases where you have more than one feature. Now, in this segment, you will deal with the original five variable problem, where the new test point has the following features:  
+* Cap Shape = Convex
+* Cap Surface = Smooth
+* Cap Colour = White
+* Bruises = Yes
+* Odour = None
+
+Here the objective is to classify it into edible or poisonous class. Let's see how that can be done
+
+![title](image/bayes-computation.JPG)
+
+![title](image/probablity-cal.png)
+
+![title](image/probablity-cal1.JPG)
+
+![title](image/probablity-cal2.png)
+
+Now that you know how to classify a data point with five features, you can generalise this classification rule for any number of features in the dataset.
+
+![title](image/classification-rule.JPG)
+
+![title](image/explaining-bayes-theorem.JPG)
+
+![title](image/explaining-bayes-theorem.probablity-cal3.JPG)
+
+![title](image/posterior.JPG)
+
+![title](image/bayes_theorem_points.JPG)
+
+### Prior, Posterior and Likelihood
+Let’s understand the terminology of Bayes theorem.
+
+You have been using 3 terms: P(Class = edible / poisonous), P(X | Class) and P(Class | X). Bayesian classification is based on the principle that ‘you combine your **prior knowledge or beliefs about a population** with the **case specific information** to get the actual (posterior) probability’.
+
+* P(Class = edible) or P(Class = poisonous) is called the **prior probability**
+
+This incorporates our **‘prior beliefs’** before you collect specific information. If 90% of mushrooms are edible, then the prior probability is 0.90. Prior gets multiplied with the likelihood to give the posterior. In many cases, the prior has a tremendous effect on the classification. If the prior is neutral (50% are edible), then the likelihood may largely decide the outcome.
+
+* P(X|Class) is the **likelihood**
+
+After agreeing upon the prior, you collect new, case-specific data (like plucking mushrooms randomly from a farm and observing the cap colours). Likelihood updates our prior beliefs with the new information. If you find a CONVEX mushroom, then you’d want to know how likely you were to find a convex one if you had only plucked edible mushrooms.
+
+If  P(CONVEX| edible) is high, say 80%, implying that there was an 80% chance of getting a convex mushroom if you only took from edible mushrooms, this will reflect in increased chances of the mushroom being edible.
+
+
+If the likelihood is neutral (e.g. 50%), then the prior probability may largely decide the outcome. If the prior is way too powerful, then likelihood often barely affects the result.
+
+* P(Class = edible | X) is the **posterior probability**
+
+It is the outcome which **combines prior beliefs and case-specific information**. It is a balanced outcome of the prior and the likelihood.
