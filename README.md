@@ -60,8 +60,36 @@ Before we look at six variables together, lets consider a simplified sample cont
 
 ![title](image/applying-bayes.JPG)
 
-We do not need to consider the denominator because that is the common factor in both the equations.
+The effect of the denominator P(x) is not incorporated while calculating probabilities as it is the same for both the classes and hence, can be ignored without affecting the final outcome.
 
 ![title](image/mushroom-probability.JPG)
 
 ![title](image/solving-bayes.png)
+
+Since probablity of mushroom being edible given x is convex is higher so we can classify it in edible class.
+
+
+A well-articulated explanation of Naive Bayes on https://stackoverflow.com/questions/10059594/a-simple-explanation-of-naive-bayes-classification
+
+## Conditional Independence in Naive Bayes
+In the previous segment, you understood the basic idea behind the working of Naive Bayes and how it is implemented on categorical data consisting of one feature and one target variable. In this case, the calculations for solving the classification problem are very simple as the probabilities can simply be calculated by counting. In this segment, you will understand how Naive Bayes would work if there are more than one feature in the data set.
+
+Let's now consider another problem statement where we have below 3 columns. Lets try to classify a new input whose cap-shape is 'CONVEX' and Cap-surface is smooth.
+
+![title](image/mushroom-dataset2.JPG)
+
+Then apply Bayes theorem:
+
+![title](image/applying-bayes1.JPG)
+
+Naïve Bayes follows an assumption that the variables are **conditionally independent** given the class i.e. P(X = convex,smooth | C= edible) can be written as P(X=smooth | C=edible)\timesP(X=convex | C=edible). The terms P(X=smooth | C=edible) and P(X=convex | C=edible) is simply calculated by counting the data points. Hence, the name “Naïve” because in most real-world situations the variables are not conditionally independent given the class label but most of the times the algorithm works nonetheless.
+
+![title](image/applying-bayes2.JPG)
+
+![title](image/applying-bayes-values.JPG)
+
+![title](image/applying-bayes-values1.JPG)
+
+![title](image/applying-bayes-classification.JPG)
+
+Again in above cases we are not considering the effect of denominator.
