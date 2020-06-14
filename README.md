@@ -145,3 +145,38 @@ If the likelihood is neutral (e.g. 50%), then the prior probability may largely 
 * P(Class = edible | X) is the **posterior probability**
 
 It is the outcome which **combines prior beliefs and case-specific information**. It is a balanced outcome of the prior and the likelihood.
+
+## Naive Bayes for Text Classification
+In this session, we will learn about the Naive Bayes for text classification and understand how the classifier works in the background. Also, you we learn the python implementation of Naive Bayes for text classification problem.
+
+Naive Bayes is commonly used for text classification in applications such as predicting spam emails, classifying text (e.g. news) into categories such as politics, sports, lifestyle etc. In general, Naive Bayes has proven to perform well in text classification applications.
+
+### Document Classifier - Pre Processing Steps
+In this session, you will learn how to build a Naive Bayes document classifier, i.e. a model for classifying text into categories.
+
+Let’s first understand the problem statement and some necessary data preprocessing steps before building the actual classifier.
+
+![title](image/NaiveBayes.png)
+
+Let us suppose each sentence above represent a document and we have two classes i.e. education and cinema. So we need to classify the document whether they belong to cinema or education class.
+
+So we will start by breaking sentences into words and put them in a bag(dictionary of unique words)
+
+![title](image/dictionary-words.JPG)
+
+To summarise - you understood the data you are going to be working with and to convert the documents given into dictionary/vocabulary by removing ‘stop words’ which are not helpful for helping in document classification.
+
+Great, we will now look  at how to use the vocabulary/dictionary to represent the given test documents by counting the occurences of various words. This is the way we represent the documents in **Multinomial Naive Bayes**.
+
+![title](image/bagofwords.JPG)
+
+We need to remember that this bag of words don't consider ordering of words but just how many words in a vocabulory occurs in the document.
+
+![title](image/dict-notation.JPG)
+
+So now we can represent each document as 12-dimentional vector, where each element tells how often a word occurs in the document.
+
+![title](image/bag-array.JPG)
+
+![title](image/seperating-bag.png)
+
