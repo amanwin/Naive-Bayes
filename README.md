@@ -180,3 +180,53 @@ So now we can represent each document as 12-dimentional vector, where each eleme
 
 ![title](image/seperating-bag.png)
 
+### Document Classifier - Worked out Example
+We will now learn how to classify new documents into classes ‘cinema’  and ‘education’. Using a worked out example, we will understand how the Naive Bayes classifier assigns class labels to documents.
+
+![title](image/seperating-bag1.png)
+
+So now that we have formulated the problem in terms of prior, posterior and likelihood, let us see how this can be tabulated to make our calculations easier.
+
+![title](image/tabular-classification.png)
+
+Now, let's understand the actual process of classification using Multinomial Naive Bayes Classifier.
+
+![title](image/text-classification1.png)
+
+![title](image/text-classification2.png)
+
+We will see how to counter the zero probability issue in the next segment.
+
+### Laplace Smoothing
+In the previous section, we encountered the ‘zero probability problem’ - the probability of a word which has never appeared in a class (though it may have appeared in the dataset in another class) is 0.
+
+We will now understand how a technique called ‘Laplace smoothing’ helps solve this problem.
+
+![title](image/laplace-smoothing.png)
+
+Wasn’t that interesting? Did you notice how we could not assign any class label for our test document and got inconclusive results? That is where Laplace smoothing helps. How exactly does it help?
+
+![title](image/laplace-smoothing1.JPG)
+
+So basically we add one to each word occurrence. Some other laplace smoothing involves add one and then size of V (no. of words). But we will stick with adding 1 only.
+
+![title](image/laplace-smoothing2.png)
+
+You saw how Laplace smoothing helped solve the zero probability problem.
+
+Please note that - If there are words occurring in a test sentence which are not a part of the dictionary, then they will not be considered as part of the feature vector since it only considers the words that are part of the dictionary. These new words will be completely ignored.
+
+## Quick Introduction to Bernoulli Naive Bayes
+Till now, we were studying the multinomial way of classifying documents. Now let’s briefly study Bernoulli Naive Bayes.
+
+In Bernoulli Naive Bayes we don't care about how many times a word occur in the document, rather need to know wether the word occurred or not. So our new representation will only have zeros and ones. Even if a particular word occurs more than once, we just replace it with '1'. The following is the representation for doing Bernoulli's Naive Bayes.
+
+![title](image/bernoulli-theorem.png)
+
+You saw that the most fundamental difference in Bernoulli Naive Bayes Classifier is the way we build the bag of words representation, which in this case is just 0 or 1. Simply put, Bernoulli Naive Bayes is concerned only with whether the word is present or not in a document, whereas Multinomial Naive Bayes counts the no. of occurrences of the words as well.
+
+The whole worked out example can be found below -
+
+[Bernoulli Naive Bayes](dataset/Bernoulli_Calculation.pdf)
+
+
