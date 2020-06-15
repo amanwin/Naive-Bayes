@@ -202,6 +202,10 @@ In the previous section, we encountered the ‘zero probability problem’ - the
 
 We will now understand how a technique called ‘Laplace smoothing’ helps solve this problem.
 
+While trying to calculate the likelihood of a test document for a given class, it is possible that there exist certain words which although are a part of the dictionary but don't appear in the training documents of that class like the word pepsi does not appear in documents of hot class. Then, the probability of that word for that class becomes zero ( P(pepsi|hot) =0 )  and it makes the complete likelihood term zero. This is called the zero-probability problem.
+
+To counter this problem, a ‘1’ is added to the total of every word count of all the words of the dictionary for that class. This increases the total word count for that class by the length of the dictionary. This technique is called Laplace Smoothing. After applying Laplace Smoothing, the updated table shown before will look like as follows -
+
 ![title](image/laplace-smoothing.png)
 
 Wasn’t that interesting? Did you notice how we could not assign any class label for our test document and got inconclusive results? That is where Laplace smoothing helps. How exactly does it help?
