@@ -229,4 +229,70 @@ The whole worked out example can be found below -
 
 [Bernoulli Naive Bayes](dataset/Bernoulli_Calculation.pdf)
 
+### Python Lab - Education Or Cinema ?
+In this segment, we will learn how to implement both Multinomial and Bernoulli Naive Bayes classifiers in python.
+
+Please download the python notebooks and the dataset from below.
+
+[Train Data](dataset/example_train.csv)
+
+[Test Data](dataset/example_test.csv)
+
+[Python Notebook](dataset/Naive_Bayes_Multinomial_Bernoulli_+Demo.ipynb)
+
+In the above notebook, we used Countvectorizer() which converted the documents into a set of unique words alphabetically sorted and indexed.We will be proceeding with the pre-processing steps required to fit a Naive Bayes model on it. 
+
+**Stop Words:**
+
+We can see a few trivial words such as 'and','is','of', etc. These words don't make any difference in classifying a document. These are called stop words. So we would like to get rid of them. We can remove them by passing a parameter stop_words='english' while instantiating Countvectorizer().
+
+To Summarise, If we have a vast vocabulary of let's say 2000 or 3000 words, using a Sparse Matrix for Naive Bayes classifier will not be efficient. This is because a **Sparse Matrix** has so many zeros and storing so many zeros in the memory is a waste of memory. Refer to the image below.
+
+![title](image/sparse-matrix.JPG)
+
+Now the way to get rid of these is know as a **Compressed Sparse Row format**.
+
+![title](image/compressed-sparse-matrix.JPG)
+
+This representation can be understood as follows:
+
+Consider first 4 rows of the output: (0,2), (0,5), (0,7) and (0,11). It says that the first document (index 0) has 7th , 2nd , 5th and 11th 'word' present in the document, and that they appear only once in the document- indicated by the right hand column entry.
+
+Similarly, consider the entry (4,4) (third from bottom). It says that the fifth document has the fifth word present twice. Indeed, the 5th word('good') appears twice in the 5th document.
+ da
+In the next segment, you will implement both Multinomial and Bernoulli Naive Bayes classifiers on a realtaset to classify SMSes as spam or ham.
+
+### Python Lab - SMS Spam Ham Classifier : Multinomial
+We had mentioned earlier that Naive Bayes finds applications in spam detection. Let’s now see a full-fledged implementation of the Naive Bayes classifier in python on the ‘SMS dataset’.
+
+We’ll build an SMS spam classifier and compare the results of Multinomial NB and Bernoulli NB. For detailed information about the dataset used you can refer to the link: SMS dataset (https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection)
+
+Please download the python notebooks and the dataset below.
+
+[SMS Spam Ham dataset](dataset/SMSSpamCollection)
+
+[Multinomial_NB_SMS](dataset/SMS+Classifier+_+Multinomial+Naive+Bayes.ipynb)
+
+In the last section, we pre-processed our real SMS: Spam/Ham classifier data. Now  we will be building and evaluating the model based on Specificity, Sensitivity and ROC curve.
+
+Sensitivity implies that out of all the actual Spam's, how many of them were correctly predicted by the model as Spam.  
+
+Specificity implies that out of all the genuine SMS's, how many of them were correctly predicted as legitimate by the model.
+
+If we look back to the problem statement, We are fine if some of the Spams are classified as Hams, but it will not be good if an important Ham is classified as Spam by our model. So our motive is to maximise Specificity.
+
+ROC Curves are used to see how well your classifier can separate positive and negative examples and to identify the best threshold for separating them.
+
+The area under the ROC Curve shows how far the curve from the base line. For the baseline it's 0.5, and for the perfect classifier it's 1. In our case the AUC obtained was 99% which is very good.
+
+### Python Lab - SMS Spam Ham Classifier : Bernoulli
+In the last section, we looked at the Naive Bayes Multinomial Classifier to classify the SMS Spam/Ham data. In this session, we will be using the same dataset but will be fitting a Bernoulli Navie Bayes Classifier.
+
+Please download the python notebooks used in this section.
+
+[Naive Bayes Bernoulli](dataset/SMS+Classifier+_+Bernoulli+NB.ipynb)
+
+Did you note how business objectives govern our model evaluation and selection? In this case, you wanted the False positives i.e the ham being classified as spam as low as possible which you could achieve by using Bernoulli Naive Bayes classifier even though the overall accuracy and sensitivity was less than Multinomial Naive Bayes classifier.
+
+
 
